@@ -2,14 +2,20 @@
   "name": "unifi-monitor",
   "version": "0.0.1",
   "description": "Electron app monitoring the unifi ecosystem",
+  "repository": "ridespirals/unifi-monitor",
   "main": "app.js",
   "scripts": {
-    "start": "electron app.js"
+    "start": "electron -r babel-register app.js"
   },
   "keywords": [],
   "author": "John Varga <john.varga@unifilabs.com>",
   "license": "ISC",
   "devDependencies": {
     "electron": "^1.6.1"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-register": "^6.23.0"
   }
 }
