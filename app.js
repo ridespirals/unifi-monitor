@@ -1,10 +1,9 @@
-var electron = require('electron')
-var path = require('path')
-var url = require('url')
+import { app, BrowserWindow } from 'electron'
+import url from 'url'
 
-var window = null
-electron.app.once('ready', () => {
-    window = new electron.BrowserWindow({
+let window = null
+app.on('ready', () => {
+    window = new BrowserWindow({
         width: 800,
         height: 600,
         backgroundColor: '#f7f7f7',
