@@ -1,0 +1,15 @@
+{
+  "name": "unifi-monitor",
+  "version": "0.0.1",
+  "description": "Electron app monitoring the unifi ecosystem",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron app.js"
+  },
+  "keywords": [],
+  "author": "John Varga <john.varga@unifilabs.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.1"
+  }
+}
