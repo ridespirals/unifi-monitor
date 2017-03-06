@@ -1,14 +1,17 @@
 import { app, BrowserWindow } from 'electron'
 import url from 'url'
+import _ from 'lodash'
 
 let mainWindow = null
+
+const size = { width: 480, height: 272, scale: 2 }
 
 function createWindow() {
 
     mainWindow = new BrowserWindow({
         titleBarStyle: 'hidden',
-        width: 800,
-        height: 600,
+        width: size.width * size.scale,
+        height: size.height * size.scale,
         backgroundColor: '#f7f7f7',
         icon: `${__dirname}/icons/png/unifi-logo-1024.png_64x64.png`,
         show: false
