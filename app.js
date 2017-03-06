@@ -6,10 +6,12 @@ let mainWindow = null
 function createWindow() {
 
     mainWindow = new BrowserWindow({
+        titleBarStyle: 'hidden',
         width: 800,
         height: 600,
         backgroundColor: '#f7f7f7',
-        show: true
+        icon: `${__dirname}/icons/png/unifi-logo-1024.png_64x64.png`,
+        show: false
     })
 
     mainWindow.loadURL(url.format({
@@ -22,6 +24,9 @@ function createWindow() {
         mainWindow = null
     })
 
+    mainWindow.on('ready-to-show', () => {
+        mainWindow.show()
+    })
 }
 
 app.on('ready', createWindow)
