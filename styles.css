@@ -1,5 +1,6 @@
 html, body, .container-fluid {
   background-color: #D6D8DC;
+  font-size: 62.5%;
 }
 
 .text-input {
@@ -16,4 +17,20 @@ html, body, .container-fluid {
 .hash-heading {
   color: #575B5E;
   font-weight: normal;
+}
+
+#container {
+    font-size: 1.8rem;
+}
+
+.all-jobs-list {
+    list-style: none;
+    list-style-type: none;
+
+}
+
+.job-color-status {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
 }
