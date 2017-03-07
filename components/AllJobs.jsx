@@ -2,26 +2,31 @@ import React from 'react'
 import _ from 'lodash'
 
 import JobItem from './JobItem'
-import { GetAllJobs } from '../services/Jenkins'
+import api from '../services/Jenkins'
 
 export default class AllJobs extends React.Component {
+
     constructor(props) {
         console.log('all jobs created - ', props)
         super(props)
     }
 
+    getAllJobs() {
+        this.jobs = api.GetAllJobs()
+            .then(jobs => {
+                jobs.map((job, idx) => <JobItem job={job} key={idx} />)})
+    }
+
     render() {
-        // let allJobs = _.map(GetAllJobs(jobs => jobs), (j, idx) => <JobItem job={j} key={idx} />)
-        // let allJobs = GetAllJobs((jobs) => {
-        //     console.log('-- got all jobs', jobs)
-        //     return _.map(jobs, j =>  <JobItem job={j} key={j.url} />)
-        // })
-        // let allJobs = GetAllJobs(jobs => jobs)
-        // console.log('-all jobs from jenkins-', allJobs)
-        return (
-            <ul className="all-jobs-list">
-                {this.props.jobs.map((j, idx) => <JobItem job={j} key={idx} />)}
-            </ul>
-        )
+        api.GetAllJobs()
+            .then(j => {
+                 const jobs = _.map(j, (job, idx) => <JobItem job={job} key={idx} />)
+                 console.debug('allJobs', jobs)
+                 return (
+                     <ul className="all-jobs-list">
+                        {jobs}
+                     </ul>
+                 )
+            })
     }
 }
