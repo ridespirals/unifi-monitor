@@ -1,9 +1,10 @@
 import React from 'react'
 
 const JobItem = ({ id, color, url, name }) => {
-    <li className="job-item {color}" style={{color: color}}>
+    console.debug('<jobItem', id, color, url, name)
+    return (<li className="job-item {color}" style={{color: color}}>
         <a href={url} target="_blank">{name}</a>
-    </li>
+    </li>)
 }
 
 export default JobItem

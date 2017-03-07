@@ -4,7 +4,7 @@ import jenkins from 'then-jenkins'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 
-import AllJobs from './components/AllJobs'
+import MonitorApplication from './components/MonitorApplication'
 import monitorApp from './reducers'
 import apiService from './services/apiService'
 

@@ -1,9 +1,10 @@
 import React from 'react'
+import VisibleJobs from './AllJobs'
 
-const MonitorApplication = () => {
+const MonitorApplication = () => (
     <div>
-        <AllJobs />
+        <VisibleJobs />
     </div>
-}
+)
 
 export default MonitorApplication

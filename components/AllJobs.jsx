@@ -1,8 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import _ from 'lodash'
 
 import JobItem from './JobItem'
 import api from '../services/Jenkins'
+
+const getVisibleJobs = (jobs) => {
+    return jobs
+}
+
+const mapStateToProps = (state) => {
+    return {
+        jobs: getVisibleJobs(state.jobs)
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
 
 const AllJobs = ({ jobs }) => {
     console.debug('all jobs', jobs)
@@ -10,13 +25,18 @@ const AllJobs = ({ jobs }) => {
         <ul className="all-jobs-list">
             {jobs.map(job => {
                 console.log('mapping a job', job)
-                return <JobItem key={job.id} {...job} />
+                return <JobItem key={job.url} job={job} />
             })}
         </ul>
     )
 }
 
-export default AllJobs
+const VisibleJobs = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AllJobs)
+
+export default VisibleJobs
 
 // export default class AllJobs extends React.Component {
 //

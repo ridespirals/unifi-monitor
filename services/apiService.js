@@ -7,13 +7,13 @@ const apiService = store => next => action => {
     console.log(`<apiService> ${action.type}`, action)
     switch(action.type) {
         case 'GET_ALL_JOBS':
-            this.jenkins = jenkins(baseUrl)
-            this.jenkins.job.list()
+            let api = jenkins(baseUrl)
+            api.job.list()
                 .then(jobList => {
                     console.log('<apiService> got jobs from jenkins', jobList)
                     next({
                         type: 'GET_ALL_JOBS_COMPLETE',
-                        data
+                        data: jobList
                     })
                 })
             break
