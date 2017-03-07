@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 let mainWindow = null
 
-const size = { width: 480, height: 272, scale: 2 }
+const size = { width: 480, height: 272, scale: 3 }
 
 function createWindow() {
 
@@ -29,6 +29,7 @@ function createWindow() {
 
     mainWindow.on('ready-to-show', () => {
         mainWindow.show()
+        mainWindow.toggleDevTools()
     })
 }
 
