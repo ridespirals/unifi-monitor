@@ -1,7 +1,8 @@
 import React from 'react'
 
-const JobItem = ({ id, color, url, name }) => {
-    console.debug('<jobItem', id, color, url, name)
+const JobItem = (job) => {
+    console.debug('<jobItem', job)
+    let { color, url, name } = job
     return (<li className="job-item {color}" style={{color: color}}>
         <a href={url} target="_blank">{name}</a>
     </li>)

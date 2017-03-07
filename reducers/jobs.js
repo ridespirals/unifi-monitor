@@ -1,7 +1,6 @@
 import uuid from 'uuid/v4'
 
-const job = (state, action) => {
-    // state = state || {}
+const job = (state = {}, action) => {
     console.debug('<job reducer>', state, action)
     switch (action.type) {
         case 'ADD_JOB':
@@ -24,7 +23,6 @@ const job = (state, action) => {
 }
 
 const jobs = (state = [], action) => {
-    // state = state || []
     console.debug('<jobs reducer>', state, action)
     switch (action.type) {
         case 'ADD_JOB':

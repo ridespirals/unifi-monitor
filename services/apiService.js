@@ -1,4 +1,5 @@
 import jenkins from 'then-jenkins'
+import uuid from 'uuid/v4'
 
 const baseUrl = 'http://jenkins.inviewcloud.com/'
 
@@ -11,9 +12,14 @@ const apiService = store => next => action => {
             api.job.list()
                 .then(jobList => {
                     console.log('<apiService> got jobs from jenkins', jobList)
+                    let jobData = data
+                        .map(job => return {
+                            id: uuid(),
+                            ...job
+                        })
                     next({
                         type: 'GET_ALL_JOBS_COMPLETE',
-                        data: jobList
+                        data: jobData
                     })
                 })
             break
