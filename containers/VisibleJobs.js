@@ -1,27 +1,25 @@
+import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import AllJobs from '../components/AllJobs'
 
-// const getVisibleJobs = (jobs) => {
-//     return jobs
-// }
-
-const mapStateToProps = (state) => {
-    // return {
-    //     jobs: getVisibleJobs(state.jobs)
-    // }
-    console.debug('<vis> map state to props', state)
+function mapStateToProps(state) {
     return {
         jobs: state.jobs
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {}
+class VisibleJobs extends Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+
+    }
 }
 
-const VisibleJobs = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AllJobs)
+VisibleJobs.propTypes = {
+    jobs: PropTypes.any
+}
 
-export default VisibleJobs
+export default connect(mapStateToProps)(AllJobs)

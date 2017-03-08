@@ -1,11 +1,30 @@
-import React from 'react'
-import AllJobsList from './AllJobs'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import VisibleJobs from './AllJobs'
 
-const MonitorApplication = () => (
-    <div>
-        <h1>All Jobs</h1>
-        <AllJobsList />
-    </div>
-)
+class MonitorApplication extends Component {
+    constructor(props) {
+        super(props)
+    }
 
-export default MonitorApplication
+    render() {
+        let { jobs } = this.props
+        console.debug('<application> props', this.props)
+        return (
+            <div>
+                <h1>All Jobs</h1>
+                <VisibleJobs jobs={jobs} />
+            </div>
+        )
+    }
+}
+
+function mapStateToProps(state) {
+    const { jobs } = state
+    console.debug('<application> mapStateToProps', state, jobs)
+    return {
+        jobs
+    }
+}
+
+export default connect(mapStateToProps)(MonitorApplication)
