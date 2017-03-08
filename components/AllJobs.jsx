@@ -1,42 +1,38 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
 import JobItem from './JobItem'
 import api from '../services/Jenkins'
 
-const getVisibleJobs = (jobs) => {
-    return jobs
-}
-
-const mapStateToProps = (state) => {
-    return {
-        jobs: getVisibleJobs(state.jobs)
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {}
-}
-
 const AllJobs = ({ jobs }) => {
-    console.debug('all jobs', jobs)
+    console.debug('all jobs', jobs, arguments)
+    let j = { id: require('uuid/v4')(), name: 'name-test', url: 'http://unifilabs.com', color: 'blue' }
     return (
         <ul className="all-jobs-list">
-            {jobs.map(job => {
-                console.log('mapping a job', job)
-                return <JobItem key={job.url} job={job} />
-            })}
+            <JobItem key={j.id} {...j} />
         </ul>
     )
+    // return (
+    //     <ul className="all-jobs-list">
+    //         {jobs.map(job => {
+    //             console.log('mapping a job', job)
+    //             return <JobItem key={job.url} job={job} />
+    //         })}
+    //     </ul>
+    // )
 }
 
-const VisibleJobs = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AllJobs)
+AllJobs.propTypes = {
+    jobs: PropTypes.arrayOf(PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired
+    }))
+}
 
-export default VisibleJobs
+export default AllJobs
 
 // export default class AllJobs extends React.Component {
 //

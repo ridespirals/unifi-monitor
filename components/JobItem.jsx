@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
-const JobItem = (job) => {
-    console.debug('<jobItem', job)
-    let { color, url, name } = job
+const JobItem = ({ id, name, color, url }) => {
+    console.debug('<jobItem', id, name, color, url)
     return (<li className="job-item {color}" style={{color: color}}>
         <a href={url} target="_blank">{name}</a>
     </li>)
+}
+
+JobItem.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired
 }
 
 export default JobItem
