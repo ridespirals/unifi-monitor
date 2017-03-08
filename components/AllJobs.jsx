@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 
 import JobItem from './JobItem'
-import api from '../services/Jenkins'
 
 const mapStateToProps = (state) => {
     return {

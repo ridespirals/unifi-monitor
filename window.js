@@ -8,8 +8,6 @@ import MonitorApplication from './components/MonitorApplication'
 import monitorApp from './reducers'
 import apiService from './services/apiService'
 
-const jenkinsBaseUrl = 'http://jenkins.inviewcloud.com/'
-
 let store = createStore(monitorApp, {}, compose(applyMiddleware(apiService)))
 
 window.onload = function() {

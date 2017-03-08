@@ -24,10 +24,6 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
-<<<<<<< HEAD
-    "superagent": "^3.5.0",
-=======
->>>>>>> f3ee29b7ce5dc84f1c6edf0a48f7107fbbfaf8fa
     "then-jenkins": "^0.7.1",
     "uuid": "^3.0.1"
   }
