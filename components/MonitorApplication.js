@@ -9,7 +9,6 @@ class MonitorApplication extends Component {
 
     render() {
         let { jobs } = this.props
-        console.debug('<application> props', this.props)
         return (
             <div>
                 <h1>All Jobs</h1>
@@ -21,7 +20,6 @@ class MonitorApplication extends Component {
 
 function mapStateToProps(state) {
     const { jobs } = state
-    console.debug('<application> mapStateToProps', state, jobs)
     return {
         jobs
     }

@@ -6,14 +6,12 @@ import JobItem from './JobItem'
 import api from '../services/Jenkins'
 
 const mapStateToProps = (state) => {
-    console.debug('<vis> map state to props', state)
     return {
         jobs: state.jobs
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.debug('<vis> map dispatch', dispatch)
     return {}
 }
 
@@ -22,10 +20,7 @@ export default class AllJobs extends Component {
         let { jobs } = this.props
         return (
             <ul className="all-jobs-list">
-                {jobs.map(job => {
-                    console.log('mapping a job', job)
-                    return <JobItem key={job.id} {...job} />
-                })}
+                {jobs.map(job => <JobItem key={job.id} {...job} />)}
             </ul>
         )
 
