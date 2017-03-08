@@ -13,17 +13,11 @@ const jenkinsBaseUrl = 'http://jenkins.inviewcloud.com/'
 let store = createStore(monitorApp, {}, compose(applyMiddleware(apiService)))
 
 window.onload = function() {
-    this.jenkins = jenkins(jenkinsBaseUrl)
-
-    this.jenkins.job.list()
-        .then(data => {
-            console.log('jenkins job list -', data)
-            render(
-                <Provider store={store}>
-                    <MonitorApplication />
-                </Provider>,
-                document.getElementById('container')
-            )
-            store.dispatch({ type: 'GET_ALL_JOBS' })
-        })
+    render(
+        <Provider store={store}>
+            <MonitorApplication />
+        </Provider>,
+        document.getElementById('container')
+    )
+    store.dispatch({ type: 'GET_ALL_JOBS' })
 }

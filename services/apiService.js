@@ -5,18 +5,18 @@ const baseUrl = 'http://jenkins.inviewcloud.com/'
 
 const apiService = store => next => action => {
     next(action)
-    console.log(`<apiService> ${action.type}`, action)
     switch(action.type) {
         case 'GET_ALL_JOBS':
             let api = jenkins(baseUrl)
             api.job.list()
                 .then(jobList => {
-                    console.log('<apiService> got jobs from jenkins', jobList)
-                    let jobData = jobList
-                        .map(job => return {
+                    let jobData = jobList.map((job, idx) => {
+                        return {
                             id: uuid(),
-                            ...job
-                        })
+                            url: job.url,
+                            name: job.name,
+                            color: job.color || 'unknown'
+                        }})
                     next({
                         type: 'GET_ALL_JOBS_COMPLETE',
                         data: jobData
