@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+
 import VisibleJobs from './AllJobs'
+import AllNodes from './AllNodes'
 
 class MonitorApplication extends Component {
     constructor(props) {
@@ -8,11 +10,22 @@ class MonitorApplication extends Component {
     }
 
     render() {
-        let { jobs } = this.props
+        let { jobs, nodes } = this.props
         return (
             <div>
-                <h1>All Jobs</h1>
-                <VisibleJobs jobs={jobs} />
+                <div className="d-flex flex-row">
+                    <h1>UNIFI Monitor</h1>
+                </div>
+                <div className="d-flex flex-row">
+                    <div className="p-2">
+                        <h2>All Jobs</h2>
+                        <VisibleJobs jobs={jobs} />
+                    </div>
+                    <div className="p-2">
+                        <h2>Nodes</h2>
+                        <AllNodes nodes={nodes} />
+                    </div>
+                </div>
             </div>
         )
     }

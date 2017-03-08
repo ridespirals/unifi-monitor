@@ -1,5 +1,5 @@
 html, body, .container-fluid {
-  background-color: #D6D8DC;
+  background-color: #f7f7f7;
   font-size: 62.5%;
 }
 
@@ -21,15 +21,33 @@ html, body, .container-fluid {
 
 #container {
     font-size: 1.8rem;
+    margin-top: 2.6rem;
+    background-color: #d6d8dc;
+}
+
+h1 { padding: 1rem; }
+h2 { padding-bottom: 0.5rem; }
+
+h2,
+.all-jobs-list li {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
 }
 
 .all-jobs-list {
     list-style: none;
     list-style-type: none;
-
+    margin: 0;
+    padding: 0;
+}
+.all-jobs-list li {
+    margin-bottom: 1rem;
+}
+.all-jobs-list li > * {
+    vertical-align: middle;
 }
 
-/*
+/* http://www.colourlovers.com/palette/4284452/Waffle
 red: #B83564
 blue: #6E79BC
 green: #83B8AA
@@ -40,6 +58,7 @@ disabled: #272D4D
     display: inline-block;
     width: 50px;
     height: 25px;
+    margin-right: 1rem;
 }
 .job-item.blue .job-item-status {
     background-color: #6E79BC;

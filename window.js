@@ -18,4 +18,7 @@ window.onload = function() {
         document.getElementById('container')
     )
     store.dispatch({ type: 'GET_ALL_JOBS' })
+    store.dispatch({ type: 'GET_QUEUE' })
+    store.dispatch({ type: 'GET_JOB', data: 'dev-portal' })
+    store.dispatch({ type: 'GET_ALL_NODES' })
 }

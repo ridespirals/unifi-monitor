@@ -4,16 +4,6 @@ import _ from 'lodash'
 
 import JobItem from './JobItem'
 
-const mapStateToProps = (state) => {
-    return {
-        jobs: state.jobs
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {}
-}
-
 export default class AllJobs extends Component {
     render() {
         let { jobs } = this.props
