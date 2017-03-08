@@ -29,27 +29,35 @@ html, body, .container-fluid {
 
 }
 
+/*
+red: #B83564
+blue: #6E79BC
+green: #83B8AA
+yellow: #FF6A5A
+disabled: #272D4D
+*/
 .job-item-status {
     display: inline-block;
     width: 50px;
     height: 25px;
 }
 .job-item.blue .job-item-status {
-    background-color: #209bb4;
+    background-color: #6E79BC;
 }
 .job-item.green .job-item-status {
-    background-color: green;
+    background-color: #83B8AA;
 }
 .job-item.red .job-item-status {
-    background-color: #c02;
+    background-color: #B83564;
 }
 .job-item.yellow .job-item-status {
-    background-color: #cf0;
+    background-color: #FF6A5A;
 }
 
 .job-item-disabled {
     opacity: 0.6;
 }
+.job-item.unknown .job-item-status,
 .job-item.disabled .job-item-status {
-    background-color: #2a2a2a;
+    background-color: #272D4D;
 }
