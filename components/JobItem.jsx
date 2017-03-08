@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 
-//const JobItem = ({ id, name, color, url }) => {
 export default class JobItem extends Component {
     render() {
         let { id, name, color, url } = this.props
