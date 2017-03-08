@@ -12,7 +12,7 @@ const apiService = store => next => action => {
             api.job.list()
                 .then(jobList => {
                     console.log('<apiService> got jobs from jenkins', jobList)
-                    let jobData = data
+                    let jobData = jobList
                         .map(job => return {
                             id: uuid(),
                             ...job
