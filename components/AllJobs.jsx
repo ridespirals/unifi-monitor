@@ -5,6 +5,18 @@ import _ from 'lodash'
 import JobItem from './JobItem'
 import api from '../services/Jenkins'
 
+const mapStateToProps = (state) => {
+    console.debug('<vis> map state to props', state)
+    return {
+        jobs: state.jobs
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    console.debug('<vis> map dispatch', dispatch)
+    return {}
+}
+
 const AllJobs = ({ jobs }) => {
     console.debug('all jobs', jobs, arguments)
     let j = { id: require('uuid/v4')(), name: 'name-test', url: 'http://unifilabs.com', color: 'blue' }
@@ -24,15 +36,21 @@ const AllJobs = ({ jobs }) => {
 }
 
 AllJobs.propTypes = {
-    jobs: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
-        color: PropTypes.string.isRequired
-    }))
+    jobs: PropTypes.any
+    // jobs: PropTypes.arrayOf(PropTypes.shape({
+    //     id: PropTypes.string.isRequired,
+    //     name: PropTypes.string.isRequired,
+    //     url: PropTypes.string.isRequired,
+    //     color: PropTypes.string.isRequired
+    // }))
 }
 
-export default AllJobs
+const AllJobsList = connect({
+    mapStateToProps,
+    mapDispatchToProps
+})(AllJobs)
+
+export default AllJobsList
 
 // export default class AllJobs extends React.Component {
 //

@@ -1,10 +1,10 @@
 import React from 'react'
-import VisibleJobs from './AllJobs'
+import AllJobsList from './AllJobs'
 
 const MonitorApplication = () => (
     <div>
         <h1>All Jobs</h1>
-        <VisibleJobs />
+        <AllJobsList />
     </div>
 )
 
