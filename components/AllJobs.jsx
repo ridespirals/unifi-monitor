@@ -1,27 +1,38 @@
-import React from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import _ from 'lodash'
 
 import JobItem from './JobItem'
-import { GetAllJobs } from '../services/Jenkins'
+import api from '../services/Jenkins'
 
-export default class AllJobs extends React.Component {
-    constructor(props) {
-        console.log('all jobs created - ', props)
-        super(props)
+const mapStateToProps = (state) => {
+    return {
+        jobs: state.jobs
     }
+}
 
+const mapDispatchToProps = (dispatch) => {
+    return {}
+}
+
+export default class AllJobs extends Component {
     render() {
-        // let allJobs = _.map(GetAllJobs(jobs => jobs), (j, idx) => <JobItem job={j} key={idx} />)
-        // let allJobs = GetAllJobs((jobs) => {
-        //     console.log('-- got all jobs', jobs)
-        //     return _.map(jobs, j =>  <JobItem job={j} key={j.url} />)
-        // })
-        // let allJobs = GetAllJobs(jobs => jobs)
-        // console.log('-all jobs from jenkins-', allJobs)
+        let { jobs } = this.props
         return (
             <ul className="all-jobs-list">
-                {this.props.jobs.map((j, idx) => <JobItem job={j} key={idx} />)}
+                {jobs.map(job => <JobItem key={job.id} {...job} />)}
             </ul>
         )
+
     }
+}
+
+AllJobs.propTypes = {
+    jobs: PropTypes.any
+    // jobs: PropTypes.arrayOf(PropTypes.shape({
+    //     id: PropTypes.string.isRequired,
+    //     name: PropTypes.string.isRequired,
+    //     url: PropTypes.string.isRequired,
+    //     color: PropTypes.string.isRequired
+    // }))
 }

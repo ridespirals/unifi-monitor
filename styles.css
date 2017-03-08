@@ -1,5 +1,6 @@
 html, body, .container-fluid {
   background-color: #D6D8DC;
+  font-size: 62.5%;
 }
 
 .text-input {
@@ -16,4 +17,39 @@ html, body, .container-fluid {
 .hash-heading {
   color: #575B5E;
   font-weight: normal;
+}
+
+#container {
+    font-size: 1.8rem;
+}
+
+.all-jobs-list {
+    list-style: none;
+    list-style-type: none;
+
+}
+
+.job-item-status {
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+}
+.job-item.blue .job-item-status {
+    background-color: #209bb4;
+}
+.job-item.green .job-item-status {
+    background-color: green;
+}
+.job-item.red .job-item-status {
+    background-color: #c02;
+}
+.job-item.yellow .job-item-status {
+    background-color: #cf0;
+}
+
+.job-item-disabled {
+    opacity: 0.6;
+}
+.job-item.disabled .job-item-status {
+    background-color: #2a2a2a;
 }

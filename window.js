@@ -1,18 +1,23 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import AllJobs from './components/AllJobs'
-import jenkinsapi from 'jenkins-api'
+import { render } from 'react-dom'
+import jenkins from 'then-jenkins'
+import { createStore, applyMiddleware, compose } from 'redux'
+import { Provider } from 'react-redux'
+
+import MonitorApplication from './components/MonitorApplication'
+import monitorApp from './reducers'
+import apiService from './services/apiService'
 
 const jenkinsBaseUrl = 'http://jenkins.inviewcloud.com/'
 
+let store = createStore(monitorApp, {}, compose(applyMiddleware(apiService)))
+
 window.onload = function() {
-    const jenkins = jenkinsapi.init(jenkinsBaseUrl)
-    jenkins.all_jobs((err, data) => {
-        console.log('-window all_jobs', err, data)
-        if (err) { console.error('all jobs error', err); return null; }
-        ReactDOM.render(
-            <AllJobs jobs={data} />,
-            document.getElementById('container')
-        )
-    })
+    render(
+        <Provider store={store}>
+            <MonitorApplication />
+        </Provider>,
+        document.getElementById('container')
+    )
+    store.dispatch({ type: 'GET_ALL_JOBS' })
 }

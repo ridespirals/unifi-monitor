@@ -28,8 +28,9 @@ function createWindow() {
     })
 
     mainWindow.on('ready-to-show', () => {
-        mainWindow.show()
+        mainWindow.setMenu(null)
         mainWindow.toggleDevTools()
+        mainWindow.show()
     })
 }
 
