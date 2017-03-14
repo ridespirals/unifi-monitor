@@ -17,6 +17,16 @@ const apiService = store => next => action => {
                     })
                 })
                 break
+        case 'GET_ALL_QUEUES':
+            api.queue.list()
+                .then(queues => {
+                    console.debug('<api> queues', queues)
+                    next({
+                        type: 'GET_ALL_QUEUES_COMPLETE',
+                        data: queues
+                    })
+                })
+                break
         case 'GET_ALL_JOBS':
             window.api = api
             api.job.list()

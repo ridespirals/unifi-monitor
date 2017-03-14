@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 
 import VisibleJobs from './AllJobs'
 import AllNodes from './AllNodes'
+import AllQueues from './AllQueues'
 import Footer from './Footer'
+import RefreshLink from '../containers/RefreshLink'
 
 class MonitorApplication extends Component {
     constructor(props) {
@@ -11,7 +13,7 @@ class MonitorApplication extends Component {
     }
 
     render() {
-        let { jobs, nodes } = this.props
+        let { jobs, nodes, queues } = this.props
         return (
             <div>
                 <div id="header" className="d-flex justify-content-start">
@@ -19,7 +21,7 @@ class MonitorApplication extends Component {
                         <span className="title">UNIFI Monitor</span>
                     </div>
                     <div className="ml-auto p-2">
-                        <i className="fa fa-refresh"></i>
+                        <RefreshLink />
                     </div>
                 </div>
                 <div className="d-flex flex-row">
@@ -30,6 +32,9 @@ class MonitorApplication extends Component {
                     <div className="p-2">
                         <h2>Nodes</h2>
                         <AllNodes nodes={nodes} />
+                        <hr />
+                        <h2>Build Queue</h2>
+                        <AllQueues queues={queues} />
                     </div>
                 </div>
                 <div className="d-flex flex-row">

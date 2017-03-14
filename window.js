@@ -7,8 +7,9 @@ import { Router, Route, hashHistory } from 'react-router'
 import MonitorApplication from './components/MonitorApplication'
 import monitorApp from './reducers'
 import apiService from './services/apiService'
+import consoleLogger from './services/ConsoleLogger'
 
-let store = createStore(monitorApp, {}, compose(applyMiddleware(apiService)))
+let store = createStore(monitorApp, {}, compose(applyMiddleware(apiService, consoleLogger)))
 
 window.onload = function() {
     render(
@@ -23,4 +24,5 @@ window.onload = function() {
     // store.dispatch({ type: 'GET_QUEUE' })
     // store.dispatch({ type: 'GET_JOB', data: 'dev-portal' })
     store.dispatch({ type: 'GET_ALL_NODES' })
+    store.dispatch({ type: 'GET_ALL_QUEUES' })
 }

@@ -7,6 +7,7 @@ import JobItem from './JobItem'
 export default class AllJobs extends Component {
     render() {
         let { jobs } = this.props
+        console.debug('all jobs props', this.props)
         return (
             <ul className="all-jobs-list">
                 {jobs.map(job => <JobItem key={job.id} {...job} />)}
