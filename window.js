@@ -24,5 +24,21 @@ window.onload = function() {
     // store.dispatch({ type: 'GET_QUEUE' })
     // store.dispatch({ type: 'GET_JOB', data: 'dev-portal' })
     store.dispatch({ type: 'GET_ALL_NODES' })
-    store.dispatch({ type: 'GET_ALL_QUEUES' })
+    // store.dispatch({ type: 'GET_ALL_QUEUES' })
+    store.dispatch({ type: 'ADD_QUEUE', data: {
+        items: [
+            {
+                'why': 'because i said so',
+                'id': 20
+            }
+        ]
+    } })
+    store.dispatch({ type: 'ADD_QUEUE', data: {
+        items: [
+            {
+                'why': 'Build #2 is already in progress (ETA:N/A)',
+                'id': 22
+            }
+        ]
+    } })
 }

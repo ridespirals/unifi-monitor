@@ -13,11 +13,22 @@ class AllQueues extends Component {
         super(props)
     }
     render() {
-        return (
-            <div className="all-queues-list">
-                queues
-            </div>
-        )
+        let { queues } = this.props
+        console.warn('-- queues render --', this.props)
+        if (queues.length === 0) {
+            return <div className="all-queues-list no-queues">No queues</div>
+        } else {
+            return (
+                <div className="all-queues-list">
+                    {queues.map(q => {
+                        return q.items.map(item => {
+                            return (<div key={item.id}>{item.id} - {item.why}</div>)
+                        })
+                        // return (<div key={q.id}>{q.id} - {q.why}</div>)
+                    })}
+                </div>
+            )
+        }
     }
 }
 
