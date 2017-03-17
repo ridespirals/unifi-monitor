@@ -21,9 +21,9 @@ class AllQueues extends Component {
             return (
                 <div className="all-queues-list">
                     {queues.map(q => {
-                        return q.items.map(item => {
-                            return (<div key={item.id}>{item.id} - {item.why}</div>)
-                        })
+                        //return q.items.map(item => {
+                            return (<div key={q.id}>{q.id} - {q.why}</div>)
+                        //})
                         // return (<div key={q.id}>{q.id} - {q.why}</div>)
                     })}
                 </div>
